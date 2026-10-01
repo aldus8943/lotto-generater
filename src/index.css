@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: rgba(212, 175, 55, 0.15);
+  }
+  body {
+    font-family: 'Pretendard', 'Outfit', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background-color: #06070a;
+    color: #e6e8f0;
+    overflow-x: hidden;
+  }
+}
+
+/* Luxury Typography */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Gold Metallic Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff2a3 0%, #e2b744 35%, #f9e282 50%, #b8860b 80%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(255, 230, 140, 0.8), rgba(184, 134, 11, 0.4), rgba(255, 215, 0, 0.8)) 1;
+}
+
+.gold-badge {
+  background: linear-gradient(135deg, #2a220e 0%, #151208 100%);
+  border: 1px solid rgba(226, 183, 68, 0.45);
+  box-shadow: 0 4px 20px rgba(218, 165, 32, 0.15), inset 0 1px 0 rgba(255, 230, 140, 0.3);
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #ffdf79 0%, #d4af37 40%, #aa8210 100%);
+  color: #0b0a04;
+  font-weight: 700;
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 35px rgba(212, 175, 55, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  filter: brightness(1.08);
+}
+
+.gold-button:active {
+  transform: translateY(1px);
+}
+
+/* Glassmorphism Panels */
+.glass-obsidian {
+  background: rgba(14, 16, 24, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 230, 140, 0.08);
+}
+
+.glass-obsidian-subtle {
+  background: rgba(18, 21, 31, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Shimmer Light Sweep */
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 235, 160, 0.25), transparent);
+  animation: shimmer 3.5s infinite;
+}
+
+/* Ambient Radial Glow */
+.gold-glow {
+  box-shadow: 0 0 45px -5px rgba(212, 175, 55, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08090d;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2c38;
+  border-radius: 9999px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Print Styles for Real OMR and Thermal Receipt */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-page {
+    page-break-after: always;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
